@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="animate.css-master/animate.min.css">
+     <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+<script type="text/javascript" src="Brython-3.8.8/brython.js"></script>
+<script type="text/javascript" src="Brython-3.8.8/brython_stdlib.js"></script>
+</head>
+    <style>
+        .backimg{
+            background-image: url('./black-and-silver-film-camera-on-brown-wooden-surface-733853.jpg');
+	background-size: cover;
+          overflow-x: hidden;  
+height: 100vh;
+	background-attachment: fixed;
+	position: relative;
+        }
+    
+    
+    
+    </style>
+
+<body onload="brython()">
+    <div class="contatiner backimg">
+        
+    <center>
+        <h1 style="color: gold" >GAME</h1>
+        
+        </center>
+        <br><br><br><br>
+        <center>
+        <div class="row">
+            <div class="col-4">
+                <h3 style="color: aliceblue">Computer</h3>
+           <img src="img/rockcom.png" style="display: block" id="czone4"class="img-fluid animated infinite bounce " >
+                <img src="img/rockcom.png" style="display: none" id="czone1"class="img-fluid" >
+                 <img src="img/papercom.png" id="czone2" class="img-fluid" style="display: none" >
+                 <img src="img/scissorscom.png" id="czone3" class="img-fluid" style="display: none" >
+            
+            </div>
+             <div class="col-4">
+                 <center>
+                     <br><br>
+            <h1 style="color: aliceblue">V/s</h1></center>
+            
+            </div>
+             <div class="col-4">
+                 <h3 style="color: aliceblue">Player</h3>
+                 <img src="img/rock.png" style="display: block" id="zone4"class="img-fluid animated infinite bounce " >
+                <img src="img/rock.png" id="zone1" style="display: none" class="img-fluid">
+                 <img src="img/paper.png" id="zone2"  style="display: none" class="img-fluid"  >
+                 <img src="img/scissors.png" id="zone3" class="img-fluid" style="display: none" >
+            
+            </div>
+        
+        </div>
+            <h3>CHOOSE</h3>
+            
+            <div class="row">
+            <div class="col-4">
+          <button class="rock" style="display: none" id="button1">Stone</button>
+          
+        </div>
+                <div class="col-4">
+          <button class="paper"  id="button4">Play</button>
+          <button class="paper"  style="display: none" id="button2">Paper</button>
+          
+        </div>
+                <div class="col-4">
+          
+          <button class="scissors" style="display: none" id="button3">Scissors</button>
+        </div>
+    </div>
+        
+        
+        
+        
+    
+    </center>
+    
+    </div>
+<script type="text/python">
+from browser import bind, document
+import random
+@bind("#button4", "click")
+def change(event):
+    document["button1"].style.display = "block"
+    document["button2"].style.display = "block"
+    document["button3"].style.display = "block"
+    document["button4"].style.display = "none"
+    document["czone4"].style.display = "block"
+    document["zone4"].style.display = "block"
+    document["czone1"].style.display = "none"
+    document["czone2"].style.display = "none"
+    document["czone3"].style.display = "none"
+    document["zone1"].style.display = "none"
+    document["zone2"].style.display = "none"
+    document["zone3"].style.display = "none"
+    
+@bind("#button1", "click")
+
+def change(event):
+    display = document["czone4"].style.display
+    document["czone4"].style.display = "none"
+    display = document["zone4"].style.display
+    document["zone4"].style.display = "none"
+    comp_choice=random.randint(1,3)
+    playerchoice=1
+    document["button1"].bind("click", lambda ev: print(comp_choice))
+    if comp_choice==1:
+        display = document["czone1"].style.display
+        document["czone1"].style.display = "block" if display == "none" else "block"
+        document["czone2"].style.display = "none"
+        document["czone3"].style.display = "none"
+    if comp_choice==2:
+        display = document["czone2"].style.display
+        document["czone2"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone3"].style.display = "none"
+    if comp_choice==3:
+        display = document["czone3"].style.display
+        document["czone3"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone2"].style.display = "none"
+    display = document["zone1"].style.display
+    document["zone1"].style.display = "block" if display == "none" else "block"
+    document["zone2"].style.display = "none"
+    document["zone3"].style.display = "none"
+    document["button1"].style.display = "none"
+    document["button2"].style.display = "none"
+    document["button3"].style.display = "none"
+    document["button4"].style.display = "block"
+@bind("#button2", "click")
+def change(event):
+    display = document["czone4"].style.display
+    document["czone4"].style.display = "none"
+    display = document["zone4"].style.display
+    document["zone4"].style.display = "none"
+    comp_choice=random.randint(1,3)
+    playerchoice=2
+    document["button2"].bind("click", lambda ev: print(comp_choice))
+    if comp_choice==1:
+        display = document["czone1"].style.display
+        document["czone1"].style.display = "block" if display == "none" else "block"
+        document["czone2"].style.display = "none"
+        document["czone3"].style.display = "none"
+    if comp_choice==2:
+        display = document["czone2"].style.display
+        document["czone2"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone3"].style.display = "none"
+    if comp_choice==3:
+        display = document["czone3"].style.display
+        document["czone3"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone2"].style.display = "none"
+    display = document["zone2"].style.display
+    document["zone2"].style.display = "block" if display == "none" else "block"
+    document["zone1"].style.display = "none"
+    document["zone3"].style.display = "none"
+    document["button1"].style.display = "none"
+    document["button2"].style.display = "none"
+    document["button3"].style.display = "none"
+    document["button4"].style.display = "block"
+@bind("#button3", "click")
+def change(event):
+    display = document["czone4"].style.display
+    document["czone4"].style.display = "none"
+    display = document["zone4"].style.display
+    document["zone4"].style.display = "none"
+    comp_choice=random.randint(1,3)
+    playerchoice=1
+    document["button3"].bind("click", lambda ev: print(comp_choice))
+    if comp_choice==1:
+        display = document["czone1"].style.display
+        document["czone1"].style.display = "block" if display == "none" else "block"
+        document["czone2"].style.display = "none"
+        document["czone3"].style.display = "none"
+    if comp_choice==2:
+        display = document["czone2"].style.display
+        document["czone2"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone3"].style.display = "none"
+    if comp_choice==3:
+        display = document["czone3"].style.display
+        document["czone3"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone2"].style.display = "none"
+    display = document["zone3"].style.display
+    document["zone3"].style.display = "block" if display == "none" else "block"
+    document["zone1"].style.display = "none"
+    document["zone2"].style.display = "none"
+    document["button1"].style.display = "none"
+    document["button2"].style.display = "none"
+    document["button3"].style.display = "none"
+    document["button4"].style.display = "block"
+    
+</script>
+</body>
+
+</html>
