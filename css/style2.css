@@ -1,0 +1,50 @@
+.backimg{
+           
+    background-image:linear-gradient(rgba(0, 0, 0, 0.80),rgba(0, 0, 0, 0.80)),url(img/giphy.gif);            
+	background-size: cover;
+    overflow-x: hidden;  
+    height: 100vh;
+	background-attachment: fixed;
+	position: relative;
+        }
+
+
+.btn{
+    letter-spacing: 0.5px;
+    width: 25%;
+    border-radius: 200px;
+    margin-top: 5%;
+}
+
+
+ .btn:hover{
+            background-color:gold;
+            color: rgba(0, 0, 0, 0.89);
+            display: inline-block;
+            font-weight: 500;
+     border: 2px solid gold;
+        }
+#good1,#bad1,#neutral1,#finalu1,#finalc1{
+    padding: 2%;
+}
+
+
+@media only screen and (max-width:576px){
+    .btn{width: 60%;
+        margin-top: 15%;
+        letter-spacing: 0;
+        padding: auto;
+        font-size: 15px;
+    }
+    .backimg{
+        background-image:linear-gradient(rgba(0, 0, 0, 0.88),rgba(0, 0, 0, 0.88)),url(img/giphy3.gif);        
+    }
+    #good1,#bad1,#neutral1,#finalu1,#finalc1{
+        margin-top: 50%;
+        font-size: 20px;
+        width: 100%;
+    }
+    .container{width: 100%}
+    #de1{font-size: 25px;}
+
+}
