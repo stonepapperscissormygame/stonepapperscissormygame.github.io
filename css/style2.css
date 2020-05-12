@@ -37,9 +37,10 @@
         font-size: 10px;
     }
     .backimg{
-        background-image:url(img/photofunky.gif);  
+        background-image:linear-gradient(rgba(0, 0, 0, 0.80),rgba(0, 0, 0, 0.80)),url(img/giphy.gif);  
         background-attachment: fixed;
         background-repeat: no-repeat;
+        background-position: center;
         background-size: cover;
     }
     #good1,#bad1,#neutral1,#finalu1,#finalc1{
