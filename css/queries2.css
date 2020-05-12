@@ -1,0 +1,36 @@
+/* Small tablet to big tablet*/
+@media only screen and (max-width:1023px){
+  .rule3{ margin: 8% auto;}
+    .rule2{
+    padding-top: 3%;
+    margin-left: 30%;
+}
+}
+
+/* Small phones to small tablets*/
+@media only screen and (max-width:767px){
+  .rule3{
+      margin:15% auto;
+      width: 100%;
+    }
+    .rule2{
+    padding-top: 4%;
+    margin-left: 28%;
+}
+}
+
+
+/* Small phones*/
+@media only screen and (max-width:576px){
+     .rule3{
+      margin:15% 0;
+      width: 100%;
+    }
+    .rule2{
+    margin-left: 23%;
+    font-size: 80%;
+    font-weight: 800;
+}
+    .rule2:after{width: 145px;}
+
+}

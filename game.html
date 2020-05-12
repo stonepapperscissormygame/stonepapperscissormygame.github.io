@@ -1,0 +1,353 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="animate.css-master/animate.min.css">
+     <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+<script type="text/javascript" src="Brython-3.8.8/brython.js"></script>
+<script type="text/javascript" src="Brython-3.8.8/brython_stdlib.js"></script>
+</head>
+    <style>
+        .backimg{
+           background-color: hotpink;
+            
+	background-size: cover;
+          overflow-x: hidden;  
+height: 100vh;
+	background-attachment: fixed;
+	position: relative;
+        }
+        .rock:hover{
+            background-color: greenyellow;
+            display: inline-block;
+            
+        }
+        .paper:hover{
+            background-color: greenyellow;
+            display: inline-block;
+            
+        }
+         .scissors:hover{
+            background-color: greenyellow;
+            display: inline-block;
+            
+        }
+            
+        
+    
+    
+    
+    </style>
+
+<body onload="brython()">
+    <div class="contatiner backimg">
+        
+    <center>
+        <h1 style="color: gold" >GAME</h1>
+        
+        </center>
+        <br><br>
+        <center>
+        <div class="row">
+            <div class="col-4">
+                <h2 style="color: aliceblue;">Scores:<span style="color: gold;"id="cscore">0</span></h2>
+                <br><br>
+                <h3 style="color: aliceblue">Team Gates</h3><br>
+           <img src="img/rockcom.png" style="display: block" id="czone4"class="img-fluid animated infinite bounce " >
+                <img src="img/rockcom.png" style="display: none" id="czone1"class="img-fluid" >
+                 <img src="img/papercom.png" id="czone2" class="img-fluid" style="display: none" >
+                 <img src="img/scissorscom.png" id="czone3" class="img-fluid" style="display: none" >
+            
+            </div>
+             <div class="col-4">
+                
+                     <br><br>
+            <h1 style="color: aliceblue" id="de1" >V/s</h1>
+                 <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px"  id="good1">Good going</h2>
+                 <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px" id="neutral1">It's a tie</h2>
+                 <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px" id="bad1">Give it a try!</h2>
+                 <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px" id="finalu1">Game Over!<br><span style="color: black" id="wname"></span> Won the game! now give us a party okkie:)!</h2>
+                 <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px" id="finalc1">Game Over!<br><span  style="color: black" id="lname"></span> Lost the game! now Team Gates will give you a party okkie:)!</h2>
+                 
+                 
+                 
+            
+            </div>
+             <div class="col-4">
+                 <h2 style="color: aliceblue;">Scores:<span style="color: gold;" id="pscore">0</span></h2>
+                 <br><br>
+                 <h3 style="color: aliceblue" id="pname">Player</h3><br>
+                 <img src="img/rock.png" style="display: block" id="zone4"class="img-fluid animated infinite bounce " >
+                <img src="img/rock.png" id="zone1" style="display: none" class="img-fluid">
+                 <img src="img/paper.png" id="zone2"  style="display: none" class="img-fluid"  >
+                 <img src="img/scissors.png" id="zone3" class="img-fluid" style="display: none" >
+            
+            </div>
+        
+        </div>
+            <h3 style="color: gold;">Controls</h3>
+            
+            <div class="row">
+                
+            <div class="col-4">
+          <button class="rock" style="display: none" id="button1">Stone</button>
+          
+        </div>
+                <div class="col-4">
+          <button class="paper"  id="button4">Play</button>
+          <button class="paper"  style="display: none" id="button2">Paper</button>
+          
+        </div>
+                <div class="col-4">
+          
+          <button class="scissors" style="display: none;" id="button3">Scissors</button>
+        </div>
+            
+    </div>
+        
+        
+        
+        
+    
+    </center>
+    
+    </div>
+<script type="text/python">
+from browser import bind, document,window,prompt,alert
+import random
+global name
+name=prompt("enter your name","Unknown")
+if name==None:
+   name="Unknown"
+document["pname"].text = name
+document["wname"].text = name
+document["lname"].text = name
+global pvscore
+pvscore=0
+global pcscore
+pcscore=0
+@bind("#button4", "click")
+def change(event):
+    document["button1"].style.display = "block"
+    document["button2"].style.display = "block"
+    document["button3"].style.display = "block"
+    document["button4"].style.display = "none"
+    document["czone4"].style.display = "block"
+    document["zone4"].style.display = "block"
+    document["czone1"].style.display = "none"
+    document["czone2"].style.display = "none"
+    document["czone3"].style.display = "none"
+    document["zone1"].style.display = "none"
+    document["zone2"].style.display = "none"
+    document["zone3"].style.display = "none"
+    document["neutral1"].style.display = "none"
+    document["good1"].style.display = "none"
+    document["bad1"].style.display = "none"
+    displayu=document["finalu1"].style.display
+    displayc=document["finalc1"].style.display
+    if displayu=="block":
+       document["finalu1"].style.display = "none"
+       global pvscore
+       pvscore=0
+       global pcscore
+       pcscore=0
+       document["pscore"].text = pvscore
+       document["cscore"].text = pcscore
+    if displayc=="block":
+       document["finalc1"].style.display = "none"
+       global pcscore
+       pcscore=0
+       global pvscore
+       pvscore=0
+       document["pscore"].text = pvscore
+       document["cscore"].text = pcscore
+    document["de1"].style.display = "block"
+    
+@bind("#button1", "click")
+def change(event):
+    display = document["czone4"].style.display
+    document["czone4"].style.display = "none"
+    display = document["zone4"].style.display
+    document["zone4"].style.display = "none"
+    comp_choice=random.randint(1,3)
+    playerchoice=1
+    document["button1"].bind("click", lambda ev: print(comp_choice))
+    if comp_choice==1:
+        display = document["czone1"].style.display
+        document["czone1"].style.display = "block" if display == "none" else "block"
+        document["czone2"].style.display = "none"
+        document["czone3"].style.display = "none"
+        document["de1"].style.display = "none"
+        document["neutral1"].style.display = "block"
+        
+    if comp_choice==2:
+        display = document["czone2"].style.display
+        document["czone2"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone3"].style.display = "none"
+        global pcscore
+        pcscore=pcscore+1
+        document["de1"].style.display = "none"
+        document["bad1"].style.display = "block"
+    if comp_choice==3:
+        display = document["czone3"].style.display
+        document["czone3"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone2"].style.display = "none"
+        global pvscore
+        pvscore=pvscore+1
+        document["de1"].style.display = "none"
+        document["good1"].style.display = "block"
+    display = document["zone1"].style.display
+    document["zone1"].style.display = "block" if display == "none" else "block"
+    document["zone2"].style.display = "none"
+    document["zone3"].style.display = "none"
+    if pvscore==5:
+       document["good1"].style.display = "none"
+       document["bad1"].style.display = "none"
+       document["neutral1"].style.display = "none"
+       document["de1"].style.display = "none"
+       document["finalu1"].style.display = "block"
+    if pcscore==5:
+       document["good1"].style.display = "none"
+       document["bad1"].style.display = "none"
+       document["neutral1"].style.display = "none"
+       document["de1"].style.display = "none"
+       document["finalc1"].style.display = "block"
+       
+    document["pscore"].text = pvscore
+    document["cscore"].text = pcscore
+    document["button1"].style.display = "none"
+    document["button2"].style.display = "none"
+    document["button3"].style.display = "none"
+    document["button4"].style.display = "block"
+    
+    
+    
+    
+    
+    
+@bind("#button2", "click")
+def change(event):
+    display = document["czone4"].style.display
+    document["czone4"].style.display = "none"
+    display = document["zone4"].style.display
+    document["zone4"].style.display = "none"
+    comp_choice=random.randint(1,3)
+    playerchoice=2
+    document["button2"].bind("click", lambda ev: print(comp_choice))
+    if comp_choice==1:
+        display = document["czone1"].style.display
+        document["czone1"].style.display = "block" if display == "none" else "block"
+        document["czone2"].style.display = "none"
+        document["czone3"].style.display = "none"
+        global pvscore
+        pvscore=pvscore+1
+        document["de1"].style.display = "none"
+        document["good1"].style.display = "block"
+    if comp_choice==2:
+        display = document["czone2"].style.display
+        document["czone2"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone3"].style.display = "none"
+        document["de1"].style.display = "none"
+        document["neutral1"].style.display = "block"
+    if comp_choice==3:
+        display = document["czone3"].style.display
+        document["czone3"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone2"].style.display = "none"
+        global pcscore
+        pcscore=pcscore+1
+        document["de1"].style.display = "none"
+        document["bad1"].style.display = "block"
+    display = document["zone2"].style.display
+    document["zone2"].style.display = "block" if display == "none" else "block"
+    document["zone1"].style.display = "none"
+    document["zone3"].style.display = "none"
+    if pvscore==5:
+       document["good1"].style.display = "none"
+       document["bad1"].style.display = "none"
+       document["neutral1"].style.display = "none"
+       document["de1"].style.display = "none"
+       document["finalu1"].style.display = "block"
+    if pcscore==5:
+       document["good1"].style.display = "none"
+       document["bad1"].style.display = "none"
+       document["neutral1"].style.display = "none"
+       document["de1"].style.display = "none"
+       document["finalc1"].style.display = "block"
+    document["pscore"].text = pvscore
+    document["cscore"].text = pcscore
+    document["button1"].style.display = "none"
+    document["button2"].style.display = "none"
+    document["button3"].style.display = "none"
+    document["button4"].style.display = "block"
+    
+    
+    
+    
+    
+@bind("#button3", "click")
+def change(event):
+    display = document["czone4"].style.display
+    document["czone4"].style.display = "none"
+    display = document["zone4"].style.display
+    document["zone4"].style.display = "none"
+    comp_choice=random.randint(1,3)
+    playerchoice=1
+    document["button3"].bind("click", lambda ev: print(comp_choice))
+    if comp_choice==1:
+        display = document["czone1"].style.display
+        document["czone1"].style.display = "block" if display == "none" else "block"
+        document["czone2"].style.display = "none"
+        document["czone3"].style.display = "none"
+        global pcscore
+        pcscore=pcscore+1
+        document["de1"].style.display = "none"
+        document["bad1"].style.display = "block"
+    if comp_choice==2:
+        display = document["czone2"].style.display
+        document["czone2"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone3"].style.display = "none"
+        global pvscore
+        pvscore=pvscore+1
+        document["de1"].style.display = "none"
+        document["good1"].style.display = "block"
+    if comp_choice==3:
+        display = document["czone3"].style.display
+        document["czone3"].style.display = "block" if display == "none" else "block"
+        document["czone1"].style.display = "none"
+        document["czone2"].style.display = "none"
+        document["de1"].style.display = "none"
+        document["neutral1"].style.display = "block"
+    display = document["zone3"].style.display
+    document["zone3"].style.display = "block" if display == "none" else "block"
+    document["zone1"].style.display = "none"
+    document["zone2"].style.display = "none"
+    if pvscore==5:
+       document["good1"].style.display = "none"
+       document["bad1"].style.display = "none"
+       document["neutral1"].style.display = "none"
+       document["de1"].style.display = "none"
+       document["finalu1"].style.display = "block"
+    if pcscore==5:
+       document["good1"].style.display = "none"
+       document["bad1"].style.display = "none"
+       document["neutral1"].style.display = "none"
+       document["de1"].style.display = "none"
+       document["finalc1"].style.display = "block"
+    document["pscore"].text = pvscore
+    document["cscore"].text = pcscore
+    document["button1"].style.display = "none"
+    document["button2"].style.display = "none"
+    document["button3"].style.display = "none"
+    document["button4"].style.display = "block"
+    
+</script>
+</body>
+
+</html>

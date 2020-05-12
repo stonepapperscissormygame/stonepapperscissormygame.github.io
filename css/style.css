@@ -1,0 +1,94 @@
+html{
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    font-weight: 300;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container-fluid{
+   padding: 0;
+}
+
+/* For the index file */
+header{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.81),rgba(0, 0, 0,0.81)), url(img/images.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+}
+
+
+/* ------ Headings ---------- */
+
+h1{
+    color: aliceblue;
+    font-size: 350%;
+    font-weight: 300;
+}
+.header2{
+    color: aliceblue;
+    font-weight: 400;
+    letter-spacing: 2px;
+    padding-top: 1.5%
+}
+
+.intro{
+    padding-top: 5%;
+    padding-left: 12%;
+}
+
+/* ------ Buttons ---------- */
+
+.btn{
+    border-radius: 200px;
+    width: 10%;
+    margin-top: 6%;
+    margin-left: 13%;
+    border-width: 1.5px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+}
+.a,.b{transition: all 0.5s}
+
+.b:active,.b:hover{
+    background-color:rgba(0, 0, 0,0.81);
+    color: aliceblue;
+    border-color: aliceblue;
+}
+
+/*------ The styling for rules pages starts from here ----*/
+
+
+
+
+.header1{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.93),rgba(0, 0, 0,0.93))
+}
+
+.rule2{
+    padding-top: 0.5%;
+    margin-left: 33%;
+    font-size: 70%;
+    font-weight: 500;
+}
+
+.rule2:after{
+    display: block;
+    height: 3px;
+    background-color: yellow;
+    content: " ";
+    width: 130px;
+    margin: 3px 0;
+}
+
+.rule3{
+    width: 70%;
+    margin: 2% auto;
+}
