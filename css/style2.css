@@ -1,6 +1,6 @@
 .backimg{
            
-    background-image:linear-gradient(rgba(0, 0, 0, 0.80),rgba(0, 0, 0, 0.80)),url(img/2.jpeg);            
+    background-image:linear-gradient(rgba(0, 0, 0, 0.80),rgba(0, 0, 0, 0.80)),url(img/giphy.gif);            
 	background-size: cover;
     overflow-x: hidden;  
     height: 100vh;
@@ -36,7 +36,9 @@
         padding: auto;
         font-size: 15px;
     }
-    .backimg{background-image:linear-gradient(rgba(0, 0, 0, 0.88),rgba(0, 0, 0, 0.88)),url(img/images.jpeg);}
+    .backimg{
+        background-image:linear-gradient(rgba(0, 0, 0, 0.88),rgba(0, 0, 0, 0.88)),url(img/giphy3.gif);        
+    }
     #good1,#bad1,#neutral1,#finalu1,#finalc1{
         margin-top: 50%;
         font-size: 20px;
