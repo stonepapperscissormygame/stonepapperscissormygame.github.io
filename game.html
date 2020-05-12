@@ -4,43 +4,12 @@
 <head>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="animate.css-master/animate.min.css">
-     <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
 <script type="text/javascript" src="Brython-3.8.8/brython.js"></script>
 <script type="text/javascript" src="Brython-3.8.8/brython_stdlib.js"></script>
 </head>
-    <style>
-        .backimg{
-           background-color: hotpink;
-            
-	background-size: cover;
-          overflow-x: hidden;  
-height: 100vh;
-	background-attachment: fixed;
-	position: relative;
-        }
-        .rock:hover{
-            background-color: greenyellow;
-            display: inline-block;
-            
-        }
-        .paper:hover{
-            background-color: greenyellow;
-            display: inline-block;
-            
-        }
-         .scissors:hover{
-            background-color: greenyellow;
-            display: inline-block;
-            
-        }
-            
-        
-    
-    
-    
-    </style>
-
 <body onload="brython()">
     <div class="contatiner backimg">
         
@@ -52,10 +21,8 @@ height: 100vh;
         <center>
         <div class="row">
             <div class="col-4">
-                <h2 style="color: aliceblue;">Scores</h2>
-                <span style="color: gold;font-size: 20px"id="cscore">0</span>
-                
-                <h3 style="color: aliceblue">Gates</h3><br>
+                <h2 style="color: aliceblue;">Gates</h2>
+                <h3><span style="color: gold;font-size: 30px" id="cscore">0</span></h3><br>
            <img src="img/rockcom.png" style="display: block" id="czone4"class="img-fluid animated infinite bounce " >
                 <img src="img/rockcom.png" style="display: none" id="czone1"class="img-fluid" >
                  <img src="img/papercom.png" id="czone2" class="img-fluid" style="display: none" >
@@ -65,9 +32,9 @@ height: 100vh;
              <div class="col-4">
                 
                      <br><br>
-            <h1 style="color: aliceblue" id="de1" >V/s</h1>
+            <h1 style="color: gold" id="de1" >V/s</h1>
                  <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px"  id="good1">Good going</h2>
-                 <h2 style="color: aliceblue;display: none;background-color: gold;border-radius:12px" id="neutral1">It's a tie</h2>
+                 <h2 style="color: rgba(0, 0, 0, 0.74);display: none;background-color: gold;border-radius:12px" id="neutral1">It's a tie</h2>
                  <h2 style="color: aliceblue;display: none;background-color: firebrick;border-radius:12px" id="bad1">Give it a try!</h2>
                  <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px" id="finalu1">Game Over!<br><span style="color: black" id="wname"></span> Won the game! now give us a party okkie:)!</h2>
                  <h2 style="color: aliceblue;display: none;background-color: firebrick;border-radius:12px" id="finalc1">Game Over!<br><span  style="color: black" id="lname"></span> Lost the game! now Team Gates will give you a party okkie:)!</h2>
@@ -77,10 +44,10 @@ height: 100vh;
             
             </div>
              <div class="col-4">
-                 <h2 style="color: aliceblue;">Scores</h2>
-                 <span style="color: gold;font-size: 20px" id="pscore">0</span>
+                 <h2 style="color: aliceblue" id="pname">Player</h2>
+                 <h3><span style="color: gold;font-size: 30px"id="pscore">0</span></h3>
                  
-                 <h3 style="color: aliceblue" id="pname">Player</h3><br>
+                 <br>
                  <img src="img/rock.png" style="display: block" id="zone4"class="img-fluid animated infinite bounce " >
                 <img src="img/rock.png" id="zone1" style="display: none" class="img-fluid">
                  <img src="img/paper.png" id="zone2"  style="display: none" class="img-fluid"  >
@@ -89,26 +56,29 @@ height: 100vh;
             </div>
         
         </div>
-            <h3 style="color: gold;">Controls</h3>
+            <h3 class="ctrl" style="color:#ffc107;">Controls</h3>
             
             <div class="row">
                 
             <div class="col-4">
-          <button class="rock" style="display: none" id="button1">Stone</button>
+          <button class="rock btn btn-outline-light" style="display: none" id="button1"><strong>Stone</strong></button>
           
         </div>
                 <div class="col-4">
-          <button class="paper"  id="button4">Play</button>
-          <button class="paper"  style="display: none" id="button2">Paper</button>
+          <button class="paper btn btn-outline-light"  id="button4" onclick="playAudio()"><strong>Play</strong></button>
+          <button class="paper  btn btn-outline-light"  style="display: none" id="button2"><strong>Paper</strong></button>
           
         </div>
                 <div class="col-4">
           
-          <button class="scissors" style="display: none;" id="button3">Scissors</button>
+          <button class="scissors btn btn-outline-light" style="display: none;" id="button3"><strong>Scissors</strong></button>
         </div>
             
     </div>
-        
+        <div>
+            <audio id="music" loop>
+            <source src="Start.mp3" type="audio/mpeg"></audio>
+            </div>
         
         
         
@@ -120,7 +90,7 @@ height: 100vh;
 from browser import bind, document,window,prompt,alert
 import random
 global name
-name=prompt("enter your name")
+name=prompt("Enter your name:")
 if name==None:
    name="Unknown"
 if name=="":
@@ -352,6 +322,7 @@ def change(event):
     document["button4"].style.display = "block"
     
 </script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
