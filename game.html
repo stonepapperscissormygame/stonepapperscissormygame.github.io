@@ -52,8 +52,9 @@ height: 100vh;
         <center>
         <div class="row">
             <div class="col-4">
-                <h2 style="color: aliceblue;">Scores:<span style="color: gold;"id="cscore">0</span></h2>
-                <br><br>
+                <h2 style="color: aliceblue;">Scores</h2>
+                <span style="color: gold;font-size: 20px"id="cscore">0</span>
+                
                 <h3 style="color: aliceblue">Gates</h3><br>
            <img src="img/rockcom.png" style="display: block" id="czone4"class="img-fluid animated infinite bounce " >
                 <img src="img/rockcom.png" style="display: none" id="czone1"class="img-fluid" >
@@ -66,18 +67,19 @@ height: 100vh;
                      <br><br>
             <h1 style="color: aliceblue" id="de1" >V/s</h1>
                  <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px"  id="good1">Good going</h2>
-                 <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px" id="neutral1">It's a tie</h2>
-                 <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px" id="bad1">Give it a try!</h2>
+                 <h2 style="color: aliceblue;display: none;background-color: gold;border-radius:12px" id="neutral1">It's a tie</h2>
+                 <h2 style="color: aliceblue;display: none;background-color: firebrick;border-radius:12px" id="bad1">Give it a try!</h2>
                  <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px" id="finalu1">Game Over!<br><span style="color: black" id="wname"></span> Won the game! now give us a party okkie:)!</h2>
-                 <h2 style="color: aliceblue;display: none;background-color: lawngreen;border-radius:12px" id="finalc1">Game Over!<br><span  style="color: black" id="lname"></span> Lost the game! now Team Gates will give you a party okkie:)!</h2>
+                 <h2 style="color: aliceblue;display: none;background-color: firebrick;border-radius:12px" id="finalc1">Game Over!<br><span  style="color: black" id="lname"></span> Lost the game! now Team Gates will give you a party okkie:)!</h2>
                  
                  
                  
             
             </div>
              <div class="col-4">
-                 <h2 style="color: aliceblue;">Scores:<span style="color: gold;" id="pscore">0</span></h2>
-                 <br><br>
+                 <h2 style="color: aliceblue;">Scores</h2>
+                 <span style="color: gold;font-size: 20px" id="pscore">0</span>
+                 
                  <h3 style="color: aliceblue" id="pname">Player</h3><br>
                  <img src="img/rock.png" style="display: block" id="zone4"class="img-fluid animated infinite bounce " >
                 <img src="img/rock.png" id="zone1" style="display: none" class="img-fluid">
@@ -120,6 +122,8 @@ import random
 global name
 name=prompt("enter your name")
 if name==None:
+   name="Unknown"
+if name=="":
    name="Unknown"
 document["pname"].text = name
 document["wname"].text = name
